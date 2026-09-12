@@ -1,0 +1,20 @@
+{
+  "schema": "axm.profession-mesh.invariant-lab-consumer/v0.1",
+  "producerRepo": "mike-axiom-mir/axm-invariant-lab",
+  "producerCommit": "6bf42a40a052184571f22a50a10ae89ea6aeebed",
+  "producerCapability": "invariant.counterexample-packet",
+  "packetSchema": "axm.invariant-lab.counterexample/v0.1",
+  "packetPath": "evidence/first_counterexample_receipt.json",
+  "packetBlob": "02eeddfd12351ff6b7647bc412db3695ee45e5b3",
+  "packetSha256": "9a76733b0d1030abca19b25c01886c40df080b35d59af1346fbd3528b38b941d",
+  "schemaPath": "COUNTEREXAMPLE_PACKET.schema.json",
+  "schemaBlob": "cc9f1fde4855a56557ad6338c7595a99fc71cb21",
+  "consumerCapability": "mesh.invariant-evidence-admission",
+  "policy": {
+    "FAIL": "quarantine",
+    "HOLD": "hold",
+    "candidateAcceptanceFromInvariantEvidence": false
+  },
+  "authorityBoundary": "evidence-only-no-mesh-or-profession-authority",
+  "truthBoundary": "The Mesh consumes the producer FAIL/HOLD result without changing that status. Quarantine/hold is a separate local receiving policy. Packet evidence cannot establish profession truth, auto-accept content, apply a proposal, or grant authority."
+}
