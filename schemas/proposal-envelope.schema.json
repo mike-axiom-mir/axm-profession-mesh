@@ -1,0 +1,17 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"AXM Profession Mesh Proposal Envelope",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","proposal_id","package_id","base_version","base_digest","reason","evidence_refs","authority_boundary"],
+  "properties":{
+    "schema_version":{"const":"0.1"},
+    "proposal_id":{"type":"string","minLength":1},
+    "package_id":{"type":"string","minLength":1},
+    "base_version":{"type":"string","minLength":1},
+    "base_digest":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "reason":{"type":"string","minLength":1},
+    "evidence_refs":{"type":"array","items":{"type":"string","minLength":1}},
+    "authority_boundary":{"const":"proposal-only-no-auto-apply"}
+  }
+}

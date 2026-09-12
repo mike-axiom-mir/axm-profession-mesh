@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AXM Profession Mesh Package Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version","package_id","package_version","content_digest","digest_algorithm","registry_source","exports","professional_status","authority_boundary"],
+  "properties": {
+    "schema_version": {"const":"0.1"},
+    "package_id": {"type":"string","minLength":1},
+    "package_version": {"type":"string","minLength":1},
+    "content_digest": {"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "digest_algorithm": {"const":"sha256"},
+    "registry_source": {"type":"string","minLength":1},
+    "exports": {"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
+    "professional_status": {"enum":["DRAFT","EXPERIMENTAL","TEST","WORKING","CANON"]},
+    "authority_boundary": {"const":"transport-does-not-grant-profession-authority"}
+  }
+}

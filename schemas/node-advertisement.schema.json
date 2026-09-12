@@ -1,0 +1,14 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"AXM Profession Mesh Node Advertisement",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","node_id","protocol_version","packages","privacy_mode"],
+  "properties":{
+    "schema_version":{"const":"0.1"},
+    "node_id":{"type":"string","minLength":1},
+    "protocol_version":{"const":"0.1"},
+    "packages":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["package_id","package_version","content_digest"],"properties":{"package_id":{"type":"string","minLength":1},"package_version":{"type":"string","minLength":1},"content_digest":{"type":"string","pattern":"^[a-f0-9]{64}$"}}}},
+    "privacy_mode":{"enum":["minimal-public","private-discovery","offline-only"]}
+  }
+}
