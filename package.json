@@ -1,0 +1,8 @@
+{
+  "name":"axm-profession-mesh",
+  "version":"0.1.0-experimental",
+  "private":true,
+  "type":"module",
+  "scripts":{"test":"node tests/validate-mesh.mjs"},
+  "engines":{"node":">=20"}
+}

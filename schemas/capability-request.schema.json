@@ -1,0 +1,15 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"AXM Profession Mesh Capability Request",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","request_id","package_id","capability","version_constraint","accept_partial"],
+  "properties":{
+    "schema_version":{"const":"0.1"},
+    "request_id":{"type":"string","minLength":1},
+    "package_id":{"type":"string","minLength":1},
+    "capability":{"type":"string","minLength":1},
+    "version_constraint":{"type":"string","minLength":1},
+    "accept_partial":{"type":"boolean"}
+  }
+}
