@@ -37,9 +37,25 @@ The Mesh answers: **where can I get it, is it byte-identical to what was adverti
 - Partial capability requests are allowed only through declared package exports.
 - Offline/local operation remains valid; the Mesh is an optional distribution layer, not a runtime dependency.
 
+## Invariant Lab evidence consumer v0.2
+
+The Mesh now has one deliberately narrow cross-repository evidence input: the exact `axm.invariant-lab.counterexample/v0.1` FAIL/HOLD packet produced by **AXM Invariant Lab**.
+
+`src/invariant-evidence.mjs` consumes content-addressed packet bytes and preserves the producer result verbatim:
+
+- `FAIL` remains `FAIL` and gives the receiving Mesh policy a `quarantine` disposition;
+- `HOLD` remains `HOLD` and gives the receiving Mesh policy a `hold` disposition;
+- neither result can return candidate acceptance;
+- every packet authority field must remain `false`;
+- unsupported fields/statuses and digest mismatch fail closed.
+
+The local `quarantine` / `hold` value is a **Mesh receiving policy**, not a rewrite of the producer result and not a declaration that a profession is correct or incorrect. The packet cannot auto-accept a package, apply a proposal, create profession status, merge, promote, execute, or declare CANON.
+
+`INVARIANT_LAB_CONSUMER.json` pins the exact producer commit, packet Git blob, schema Git blob, and packet SHA-256 used by the retained consumer fixture. This is real cross-repo evidence use but remains bounded to that declared packet contract.
+
 ## Current milestone
 
-**Transport Contract v0.1** — establish verifiable envelopes, node advertisements, capability requests, proposal-back packets, and deterministic validation before implementing live peer discovery or transfer protocols.
+**Transport Contract v0.1 + bounded invariant evidence intake v0.2** — establish verifiable envelopes, node advertisements, capability requests, proposal-back packets, deterministic validation, and one evidence-only cross-repo admission signal before implementing live peer discovery or transfer protocols.
 
 ## Non-claims
 
